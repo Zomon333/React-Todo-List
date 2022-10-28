@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Component Listing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A brief listing of components; what they do, why they exist, and how to use them.
 
-## Available Scripts
+### App
+>
+>   <App />
+>
+Root component; holds all other components. Takes no props.
+Uses useState hook for some application state. Stores task count, keys, and task list as integers and an array of JavaScript Objects respectively.
+These state variables were stored in this component in order to provide a centralized location for them to be accessed easily. They were also stored in this component due to the nature of the state, as their use case is integral to the entire application itself.
 
-In the project directory, you can run:
+### Head
+>
+>   <Head />
+>
+A component holding an HTML header. Used to set the charset, include the stylesheets, and import a google font. Does nothing else.
+No State, no Props.
 
-### `npm start`
+### Box
+>
+>   <Box title="(any)" color="(gray | green | red)"> contents=children </Box>
+>
+A styled div. Does relatively little, but looks nice. Added so that ToDoForm and Task can format themselves a bit easier.
+No State; Accepts props of title and color, which defaults to gray. Displays children after title.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ToDoForm
+>
+>   <ToDoForm getIndices={indices} add={addTask} />
+>
+Form for managing tasks. Accepts props of getIndices and an event handler of add, but contains no state. Component holds a form for creating new tasks, functions to add tasks, and some small logic to display number of tasks. Component was created to allow for a consistent layout and more discrete formatting in the App component.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Task
+>
+>   <Task id=(any) title="(any)" deleteEvent={removeTask}> description=children </Task>
+>
+Component for displaying tasks. Accepts props of id, title, and an event handler of deleteEvent. Also accepts props of children. Contains state for isCompleted and isIncomplete, which respectively are used to store whether or not the event is complete or incomplete. Component was created to allow easy creation of todo list using the JavaScript map function.

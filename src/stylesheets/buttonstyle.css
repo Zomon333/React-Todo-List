@@ -1,0 +1,19 @@
+.button
+{
+    transition: background-color 0.2s ease-in-out;
+    padding:5px; border-radius: 20px; border-color:#111111; background-color:#000000; color:#BBBBBB;
+}
+.button:hover
+{
+    background-color: #333333;
+}
+
+.delbutton
+{
+    transition: background-color 0.2s ease-in-out;
+    padding:5px; border-radius: 20px; border-color:#221111; background-color:#331111; color:#BBBBBB;
+}
+.delbutton:hover
+{
+    background-color: #552222;
+}
